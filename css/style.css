@@ -68,6 +68,72 @@ h4 {
   color: #9356DC;
 }
 
+/* *************************** LOADER *************************** */
+.loader-container {
+  position: fixed;
+  z-index: 10;
+  background: #f1f1f1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: slideout 0.5s ease-in-out 2s;
+          animation: slideout 0.5s ease-in-out 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes slideout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+
+@keyframes slideout {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -10;
+  }
+}
+.dot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+  margin: 0 15px;
+  -webkit-animation: loader infinite 0.3s alternate;
+          animation: loader infinite 0.3s alternate;
+}
+
+.d2 {
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+
+.d3 {
+  -webkit-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+}
+
+@-webkit-keyframes loader {
+  100% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes loader {
+  100% {
+    transform: translateY(-30px);
+  }
+}
 /* *************************** HEADER *************************** */
 .header-container {
   display: flex;
@@ -408,7 +474,7 @@ footer {
   .header-container {
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px 10%;
+    margin: 0 10%;
   }
   .header--greybackground {
     background-color: #fff;
