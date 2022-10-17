@@ -346,6 +346,9 @@ h4 {
   margin: 15px;
   font-size: 25px;
 }
+.icon-container i {
+  color: #777;
+}
 
 .solid-heart {
   background: linear-gradient(to bottom right, #ff79DA, #9356DC);

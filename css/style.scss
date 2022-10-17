@@ -66,9 +66,6 @@ h4{
     color: #9356DC;
 }
 
-
-
-
 /* *************************** HEADER *************************** */
 .header-container{
 	display: flex;
@@ -347,6 +344,9 @@ $clr-btn-secondary: #ff79DA;
         top: 0px;
         margin: 15px;
         font-size: 25px;
+    }
+    i{
+        color: #777;
     }
 } 
 .solid-heart{
