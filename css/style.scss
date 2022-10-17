@@ -1,0 +1,493 @@
+/*****************************************************************/
+/*                                                               */
+/*      Oh My Food version: 1   Date: 30Sept22                   */
+/*      autor: A.ANDRE                                           */
+/*                                                               */
+/*                                                               */
+/*****************************************************************/
+
+
+/* *************************** MAIN *************************** */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+@font-face{
+	font-family: 'Shrikhand';
+	font-weight: normal;
+	src: url('Shrikhand/Shrikhand-Regular.ttf') format('truetype');
+}
+@font-face{
+	font-family: 'Roboto';
+	font-weight: 100;
+	src: url('Roboto/Roboto-Thin.ttf') format('truetype');
+} 
+@font-face{
+	font-family: 'Roboto';
+	font-weight: 400;
+	src: url('Roboto/Roboto-Regular.ttf') format('truetype');
+}
+@font-face{
+	font-family: 'Roboto';
+	font-weight: 700;
+	src: url('Roboto/Roboto-Bold.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Roboto', serif;
+}
+a{
+	text-decoration: none;
+}
+h1{
+    font-size: 23px;
+    font-weight: 700;
+    margin: 0;
+}
+h2{
+    font-size: 18px;
+    font-weight: 100;
+}
+h3{
+    font-size: 16px;
+    font-weight: 400;
+}
+h4{
+    font-weight: 100;
+}
+
+.grey-light-background{
+    background-color: #f6f6f6;
+}
+
+.primary-color{
+    color: #9356DC;
+}
+
+
+
+
+/* *************************** HEADER *************************** */
+.header-container{
+	display: flex;
+    flex-direction: column;
+}
+.under-header-container{
+	display: flex;
+    justify-content: center;
+    
+}
+.header__logo{
+    margin: 20px 0 10px 0;
+    img{
+        height: 28px;
+    }
+}
+
+.header__location{
+    display: flex;
+    margin: 15px 0;
+    width: 161px;
+    i, p{
+        color: #353535;
+    }
+    i{
+        margin-right: 20px;
+    }
+}
+
+.header--greybackground{
+    background-color: #eaeaea;
+}
+.header--bottomshadow{
+    box-shadow: 0px 3px 3px #ccc inset;
+}
+
+/* *************************** section explorer *************************** */
+.explorer-container{
+    display: flex;
+    justify-content: center;
+}
+.under-explorer-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.explorer__element{
+    display: flex;
+    h1, h2{
+        text-align: center;
+    }
+    &:nth-child(1){
+	    width: 70%;
+        margin: 35px 0px 15px 0px;
+    }
+    &:nth-child(2){
+        width: 100%;
+    }
+    &:nth-child(3){
+        margin: 35px 0px 60px 0px;
+    }
+}
+
+$clr-btn-primary: #9356DC;
+$clr-btn-secondary: #ff79DA;
+
+.explorer__Button{
+    padding:15px 20px;;
+	outline: none;
+	border: none;
+	font-size: 15px;
+	background: linear-gradient(to bottom right,$clr-btn-secondary, $clr-btn-primary);
+	color: #fff;
+	cursor: pointer;
+    border-radius: 30px;
+    position: relative;
+    z-index: 1;
+    &:hover{
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after{
+        content:"";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(to bottom right, lighten($clr-btn-secondary, 3), lighten($clr-btn-primary, 3));
+        border-radius: 30px;
+        box-shadow: 10px 10px 10px #ccc;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms;
+    }
+}
+
+/* *************************** section fonctionnement *************************** */
+.under-function-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.function__element{
+    position: relative;
+    display: flex;
+    width: 85%;
+    justify-content: center;
+    background-color: #eaeaea;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px #999;
+    margin:  10px 10px 20px 30px;
+    padding: 25px;
+    z-index: 1;
+    i{
+        position: absolute;
+        left: 40px;
+        top: 25px;
+    }
+    &:hover{
+        &::after {
+            opacity: 1;
+        }
+    }
+    &::after{
+        content:"";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: lighten(#f5edff,1);
+        border-radius: 20px;
+        box-shadow: 10px 10px 20px #777;
+        opacity: 0;
+        z-index: -1;
+        transition: opacity 250ms;
+    }
+    &:hover .function-icon{
+        
+        color: #9356DC;
+    }
+}
+.function__title{
+    display: flex;
+    width: 90%;
+    margin: 30px auto;
+}
+.function__roundnumber{
+    position: absolute;
+    left: -15px;
+    top: 20px;
+    color: #FFF;
+    background-color: #9356DC;
+    padding: 4px 8px 2px 8px;
+    border-radius: 20px;
+}
+.function-icon{
+    color: #777;
+}
+
+
+
+
+/* *************************** Restaurant *************************** */
+.restaurant-container{
+    margin-top: 40px;
+    padding: 30px 0 55px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.under-restaurant-container, .under-restaurant-container-duo{
+    display: flex;
+    width: 90%;
+    flex-direction: column;
+    align-items: center;
+}
+.restaurant__title{
+    display: flex;
+    width: 100%;
+    margin: 20px 0 20px 0;
+}
+.restaurant__card {
+	width: 100%;
+	height: 250px;
+	background-color: #fff;
+	box-shadow: 0px 5px 20px #999;
+	border-radius:  15px;
+	margin: 20px;
+    position: relative;
+    z-index: 1;
+    &:hover{
+        &::after{
+            opacity: 1;
+        }
+    }
+    &:hover .card__image { 
+        &::after {
+             opacity: 0.2;
+        }
+    }
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        box-shadow: 10px 10px 20px #777;
+        border-radius:  15px;
+        z-index: -1;
+        transition: opacity 250ms;
+    }
+}
+  .card__image {
+	height: 180px;
+	position: relative;
+	overflow: hidden;
+	border-radius:   15px 15px 0px 0px;
+    z-index: -1;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        background: #fff;
+        z-index: 1;
+        transition: opacity 250ms;
+    }
+    img{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+  }
+
+  .new__flag{
+    position: absolute;
+    z-index: 2;
+    color: #008766;
+    background: #99e2d0;
+    padding: 6px 10px;
+    border-radius:  3px;
+    top: 5%;
+  	left: 70%;
+  }
+
+.card__txt{
+	padding: 5px 10px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    h3, h4{
+        color: #000;
+        padding: 5px 0px 5px 0px;
+    }
+    p{
+        margin: 15px;
+        font-size: 25px;
+    }
+}
+.icon-container{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    p{
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        margin: 15px;
+        font-size: 25px;
+    }
+} 
+.solid-heart{
+    background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;
+    opacity: 0;
+    transition: opacity 1000ms;
+    &:hover{
+            opacity: 1;
+        }
+}
+
+
+/* *************************** footer *************************** */
+footer{
+	background-color: #353535;
+}
+.footer-container{
+	display: flex;
+	width: 100%;
+	max-width: 1400px;
+}
+.under-footer-container{
+	display: flex;
+	flex-direction: column;
+	padding: 20px 0;
+    margin-left: 10%;
+    a{
+        color: #fff;
+        font-size: 15px;
+        padding: 5px;
+        position: relative;
+        z-index: 1;
+        &:hover{
+            background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -moz-background-clip: text;
+            -moz-text-fill-color: transparent;
+        }
+    }
+    
+}
+
+.footer-logo{
+    margin: 10px 0 15px 0;
+    a{
+        font-family: 'Shrikhand';
+	    font-size: 18px;
+    }
+}
+   
+
+
+/* *************************** Media query *************************** */
+@media screen and ( min-width: 992px){
+
+    .header-container{
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 10px 10%;
+    }
+    .header--greybackground{
+        background-color: #fff;
+    }
+    .header--bottomshadow{
+        box-shadow: none;
+    }
+    .header__location{
+        margin: 30px 0;
+    }
+
+    .explorer__element{
+        &:nth-child(1){
+            margin: 60px 0px 25px 0px;
+        }
+        &:nth-child(3){
+            margin: 45px 0px 60px 0px;
+        }
+    }
+
+    .function__title{
+        margin: 50px auto 30px auto;
+    }
+
+    .under-function-container{
+        flex-direction: row;
+        margin: 40px 20px 60px 20px;
+    }
+    .function__element{
+        padding: 40px 25px 40px 25px;
+        i{
+            top: 40px;
+        }
+    }
+    .function__roundnumber{
+        top: 35px;
+    }
+
+    .under-restaurant-container{
+        flex-direction: row;
+    }
+    .under-restaurant-container-duo{
+        margin: 0 20px;
+    }
+
+    .under-footer-container{
+        margin-left: 7%;
+    }
+}
+
+/* *************************** page francaise *************************** */
+.main-img-container{
+    height: 250px;
+	position: relative;
+	overflow: hidden;
+    img{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.menu-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px 50px 0 0;
+}
+.menu-container__tittle{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px 0;
+    h1{
+        font-family: 'Shrikhand', serif;
+
+    }
+}
