@@ -485,11 +485,18 @@ footer{
     border-radius: 50px 50px 0 0;
     transform: translateY(-50px);
 }
+.under-menu-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+}
 .menu-container__tittle{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 80%;
+    width: 90%;
     margin: 20px 0;
     h1{
         font-family: 'Shrikhand', serif;
@@ -509,12 +516,12 @@ footer{
 .under-menu-tittle{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 90%;
 }
 .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 95%;
     margin-bottom: 40px;
 }
 
@@ -526,28 +533,67 @@ footer{
 }
 .menu__element{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 20px #999;
-    padding: 10px 20px;
     margin:  10px 0;
+    overflow: hidden;
+    &:hover .menu__element__check{
+        width: 60px;
+    }
+    &:hover .check{
+        transform: rotate(-360deg);
+    }
 }
-.under-menu__element{
+.menu__element__txt{
+
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
-    padding-top: 5px;
+    width: 100%;
+    padding-top: 5px; 
+    h3{
+        margin: auto 0 0 10px;
+    } 
+}
+.under-menu__element{  
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    h3, h4{
+        margin: 10px 0 0 0;
+    }  
+} 
 
+.nowrap{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.menu__element__check{
+    display: flex;
+    flex-shrink: 0;
+    background-color: #99e2d0;
+    width: 0px;
+    border-radius: 0 15px 15px 0;
+    transition: width 1000ms;
+    i{
+        color: #fff;
+        margin: auto;
+    }
+}
+.check{
+    transition: transform 1000ms;
 }
 
 .menu-container__button{
     margin: 30px 0;
-    .explorer__Button{
+    .explorer__Button{ 
         padding:15px 50px;
-
-
     }
 }
 
@@ -599,7 +645,7 @@ footer{
     .function__roundnumber{
         top: 35px;
     }
-
+ 
     .under-restaurant-container{
         flex-direction: row;
     }
@@ -610,12 +656,14 @@ footer{
     .under-footer-container{ 
         margin-left: 7%;
     }
-    .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
+
+    .under-menu-container{
         flex-direction: row;
     }
     .menu__element{
         margin: 20px 20px;
     }
+    
     .under-menu-tittle{
         margin-left: 40px;
     }
