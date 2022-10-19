@@ -68,6 +68,10 @@ h4 {
   color: #9356DC;
 }
 
+.white {
+  color: #fff;
+}
+
 /* *************************** LOADER *************************** */
 .loader-container {
   position: fixed;
@@ -135,14 +139,36 @@ h4 {
   }
 }
 /* *************************** HEADER *************************** */
-.header-container {
+.header-container, .header-container-menu {
   display: flex;
   flex-direction: column;
+}
+
+.header-container-menu {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .under-header-container {
   display: flex;
   justify-content: center;
+}
+
+.under-header-container-menu {
+  display: flex;
+  justify-content: space-between;
+}
+.under-header-container-menu a {
+  color: #000;
+  margin: auto 0;
+  font-size: 25px;
+}
+.under-header-container-menu a:hover {
+  background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
 }
 
 .header__logo {
@@ -469,6 +495,94 @@ footer {
   font-size: 18px;
 }
 
+/* *************************** page francaise *************************** */
+.main-img-container {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+.main-img-container img {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menu-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 50px 50px 0 0;
+  transform: translateY(-50px);
+}
+
+.menu-container__tittle {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80%;
+  margin: 20px 0;
+}
+.menu-container__tittle h1 {
+  font-family: "Shrikhand", serif;
+}
+.menu-container__tittle .icon-container {
+  width: 20px;
+}
+.menu-container__tittle .icon-container p {
+  margin: 0px;
+  font-size: 20px;
+}
+.menu-container__tittle .icon-container i {
+  color: #000;
+}
+
+.under-menu-tittle {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.menu-container__entrees, .menu-container__plats, .menu-container__desserts {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin-bottom: 40px;
+}
+
+.divider {
+  width: 50px;
+  height: 2px;
+  background-color: #99e2d0;
+  margin: 5px 0;
+}
+
+.menu__element {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px #999;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+
+.under-menu__element {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5px;
+}
+
+.menu-container__button {
+  margin: 30px 0;
+}
+.menu-container__button .explorer__Button {
+  padding: 15px 50px;
+}
+
 /* *************************** Media query *************************** */
 @media screen and (min-width: 992px) {
   .header-container {
@@ -516,35 +630,13 @@ footer {
   .under-footer-container {
     margin-left: 7%;
   }
-}
-/* *************************** page francaise *************************** */
-.main-img-container {
-  height: 250px;
-  position: relative;
-  overflow: hidden;
-}
-.main-img-container img {
-  width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.menu-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 50px 50px 0 0;
-}
-
-.menu-container__tittle {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 80%;
-  margin: 20px 0;
-}
-.menu-container__tittle h1 {
-  font-family: "Shrikhand", serif;
+  .menu-container__entrees, .menu-container__plats, .menu-container__desserts {
+    flex-direction: row;
+  }
+  .menu__element {
+    margin: 20px 20px;
+  }
+  .under-menu-tittle {
+    margin-left: 40px;
+  }
 }/*# sourceMappingURL=style.css.map */
