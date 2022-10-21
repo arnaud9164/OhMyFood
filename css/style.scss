@@ -523,6 +523,7 @@ footer{
     flex-direction: column;
     width: 95%;
     margin-bottom: 40px;
+    max-width: 600px;
 }
 
 .divider{
@@ -535,38 +536,58 @@ footer{
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 72px;
     justify-content: space-between;
     background-color: #fff;
     border-radius: 15px;
     box-shadow: 0px 5px 20px #999;
     margin:  10px 0;
+    opacity: 0;
     overflow: hidden;
+    animation: slidein 1s ease-in-out 0.2s;
+    animation-fill-mode: forwards;
     &:hover .menu__element__check{
-        width: 60px;
+        width: 72px;
     }
     &:hover .check{
         transform: rotate(-360deg);
     }
 }
-.menu__element__txt{
+@keyframes slidein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .e2{
+    animation-delay: 0.3s;
+  }
+  .e3{
+    animation-delay: 0.4s;
+  }
+  .e4{
+    animation-delay: 0.5s;
+  }
 
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 5px; 
-    h3{
-        margin: auto 0 0 10px;
-    } 
-}
-.under-menu__element{  
+.menu__element__txt{
+    padding: 10px 0 10px 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    flex-shrink: 2;
+    min-width: 55%;
+    padding-top: 5px;
+    h4{
+        font-size: 14px;
+    } 
     h3, h4{
-        margin: 10px 0 0 0;
-    }  
-} 
+        text-overflow: ellipsis; 
+        overflow: hidden;
+        white-space: nowrap;  
+    } 
+}
+.price{
+        margin: 40px 10px 0 20px;
+    }
+
 
 .nowrap{
     text-overflow: ellipsis;
@@ -576,7 +597,6 @@ footer{
 
 .menu__element__check{
     display: flex;
-    flex-shrink: 0;
     background-color: #99e2d0;
     width: 0px;
     border-radius: 0 15px 15px 0;
@@ -659,12 +679,20 @@ footer{
 
     .under-menu-container{
         flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
     }
     .menu__element{
         margin: 20px 20px;
     }
     
     .under-menu-tittle{
-        margin-left: 40px;
+        margin-left: 0px;
+        align-items: center;
+    }
+    .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
+        align-items: center;
+        margin: 0 20px;
+        width: 30%;
     }
 }
