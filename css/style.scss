@@ -12,6 +12,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+    scroll-behavior: smooth !important;
 }
 
 @font-face{
@@ -594,13 +595,16 @@ footer{
     overflow: hidden;
     white-space: nowrap;
 }
-
+.menu__element__check__container{
+    display: flex;
+}
 .menu__element__check{
     display: flex;
     background-color: #99e2d0;
     width: 0px;
-    border-radius: 0 15px 15px 0;
     transition: width 1000ms;
+    border-radius: 0 15px 15px 0;
+    
     i{
         color: #fff;
         margin: auto;
