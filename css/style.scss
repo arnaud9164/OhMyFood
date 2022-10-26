@@ -14,7 +14,6 @@
 	padding: 0;
     scroll-behavior: smooth !important;
 }
-
 @font-face{
 	font-family: 'Shrikhand';
 	font-weight: normal;
@@ -35,7 +34,6 @@
 	font-weight: 700;
 	src: url('Roboto/Roboto-Bold.ttf') format('truetype');
 }
-
 body{
     font-family: 'Roboto', serif;
 }
@@ -58,16 +56,17 @@ h3{
 h4{
     font-weight: 100;
 }
-
 .grey-light-background{
     background-color: #f6f6f6;
 }
-
-.primary-color{
-    color: #9356DC;
-}
-.white{
-    color: #fff;
+$clr-primary: #9356DC;
+$clr-secondary: #ff79DA;
+$clr-mint: #99e2d0;
+$breakpoints: 992px;
+@mixin desktop-only {
+    @media screen and (min-width: $breakpoints){
+        @content;
+    }
 }
 /* *************************** LOADER *************************** */
 .loader-container{
@@ -81,38 +80,44 @@ h4{
     align-items: center;
     animation: slideout 0.5s ease-in-out 2s;
     animation-fill-mode: forwards;
-  }
-  @keyframes slideout {
+}
+@keyframes slideout {
     from { opacity: 1; }
     to   { opacity: 0;
         z-index: -10; }
-  }
-
-  .dot{
+}
+.dot{
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+    background: linear-gradient(to bottom right, $clr-secondary, $clr-primary);
     margin: 0 15px;
     animation: loader infinite 0.3s alternate;
-  }
-  .d2{
+}
+.d2{
     animation-delay: 0.05s;
-  }
-  .d3{
+}
+.d3{
     animation-delay: 0.1s;
-  }
-  @keyframes loader{
+}
+@keyframes loader{
     100%{
       transform: translateY(-30px);
     }
-  }
+}
 /* *************************** HEADER *************************** */
-.header-container, .header-container-menu{
+.header-container{
 	display: flex;
     flex-direction: column;
+    @include desktop-only{
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0 10%;
+    }
 }
 .header-container-menu{
+    display: flex;
+    flex-direction: column;
     width: 80%;
     margin: 0 auto;
 }
@@ -128,7 +133,7 @@ h4{
         margin: auto 0;
         font-size: 25px;
         &:hover{
-            background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+            background: linear-gradient(to bottom right, $clr-secondary, $clr-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
@@ -142,7 +147,6 @@ h4{
         height: 28px;
     }
 }
-
 .header__location{
     display: flex;
     margin: 15px 0;
@@ -153,15 +157,22 @@ h4{
     i{
         margin-right: 20px;
     }
+    @include desktop-only{
+        margin: 30px 0;
+    }
 }
-
 .header--greybackground{
     background-color: #eaeaea;
+    @include desktop-only{
+        background-color: #fff;
+    }
 }
 .header--bottomshadow{
     box-shadow: 0px 3px 3px #ccc inset;
+    @include desktop-only{
+        box-shadow: none;
+    }
 }
-
 /* *************************** section explorer *************************** */
 .explorer-container{
     display: flex;
@@ -187,17 +198,21 @@ h4{
     &:nth-child(3){
         margin: 35px 0px 60px 0px;
     }
+    @include desktop-only{
+        &:nth-child(1){
+            margin: 60px 0px 25px 0px;
+        }
+        &:nth-child(3){
+            margin: 45px 0px 60px 0px;
+        }
+    }
 }
-
-$clr-btn-primary: #9356DC;
-$clr-btn-secondary: #ff79DA;
-
 .explorer__Button{
     padding:15px 20px;
 	outline: none;
 	border: none;
 	font-size: 15px;
-	background: linear-gradient(to bottom right,$clr-btn-secondary, $clr-btn-primary);
+	background: linear-gradient(to bottom right,$clr-secondary, $clr-primary);
 	color: #fff;
 	cursor: pointer;
     border-radius: 30px;
@@ -215,7 +230,7 @@ $clr-btn-secondary: #ff79DA;
         right: 0;
         bottom: 0;
         left: 0;
-        background: linear-gradient(to bottom right, lighten($clr-btn-secondary, 3), lighten($clr-btn-primary, 3));
+        background: linear-gradient(to bottom right, lighten($clr-secondary, 3), lighten($clr-primary, 3));
         border-radius: 30px;
         box-shadow: 10px 10px 10px #ccc;
         opacity: 0;
@@ -223,12 +238,15 @@ $clr-btn-secondary: #ff79DA;
         transition: opacity 250ms;
     }
 }
-
 /* *************************** section fonctionnement *************************** */
 .under-function-container{
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include desktop-only{
+        flex-direction: row;
+        margin: 40px 20px 60px 20px;
+    }
 }
 .function__element{
     position: relative;
@@ -241,10 +259,16 @@ $clr-btn-secondary: #ff79DA;
     margin:  10px 10px 20px 30px;
     padding: 25px;
     z-index: 1;
+    @include desktop-only{
+        padding: 40px 25px 40px 25px;
+    }
     i{
         position: absolute;
         left: 40px;
         top: 25px;
+        @include desktop-only{
+            top: 40px;
+        }
     }
     &:hover{
         &::after {
@@ -265,32 +289,34 @@ $clr-btn-secondary: #ff79DA;
         z-index: -1;
         transition: opacity 250ms;
     }
-    &:hover .function-icon{
+    &:hover .icon--color{
         
-        color: #9356DC;
+        color: $clr-primary;
     }
 }
 .function__title{
     display: flex;
     width: 90%;
     margin: 30px auto;
+    @include desktop-only{
+        margin: 50px auto 30px auto;
+    }
 }
 .function__roundnumber{
     position: absolute;
     left: -15px;
     top: 20px;
     color: #FFF;
-    background-color: #9356DC;
+    background-color: $clr-primary;
     padding: 4px 8px 2px 8px;
     border-radius: 20px;
+    @include desktop-only{
+        top: 35px;
+    }
 }
-.function-icon{
+.icon--color{
     color: #777;
 }
-
-
-
-
 /* *************************** Restaurant *************************** */
 .restaurant-container{
     margin-top: 40px;
@@ -304,6 +330,16 @@ $clr-btn-secondary: #ff79DA;
     width: 90%;
     flex-direction: column;
     align-items: center;
+}
+.under-restaurant-container{
+    @include desktop-only{
+        flex-direction: row;
+    }
+}
+.under-restaurant-container-duo{
+    @include desktop-only{
+        margin: 0 20px;
+    }
 }
 .restaurant__title{
     display: flex;
@@ -368,19 +404,17 @@ $clr-btn-secondary: #ff79DA;
         left: 50%;
         transform: translate(-50%, -50%);
       }
-  }
-
-  .new__flag{
+}
+.new__flag{
     position: absolute;
     z-index: 2;
     color: #008766;
-    background: #99e2d0;
+    background: $clr-mint;
     padding: 6px 10px;
     border-radius:  3px;
     top: 5%;
   	left: 70%;
-  }
-
+}
 .card__txt{
 	padding: 5px 10px 5px 10px;
     display: flex;
@@ -405,12 +439,9 @@ $clr-btn-secondary: #ff79DA;
         margin: 15px;
         font-size: 25px;
     }
-    i{
-        color: #777;
-    }
 } 
 .solid-heart{
-    background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+    background: linear-gradient(to bottom right, $clr-secondary, $clr-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -421,8 +452,6 @@ $clr-btn-secondary: #ff79DA;
             opacity: 1;
         }
 }
-
-
 /* *************************** footer *************************** */
 footer{
 	background-color: #353535;
@@ -437,6 +466,9 @@ footer{
 	flex-direction: column;
 	padding: 20px 0;
     margin-left: 10%;
+    @include desktop-only{
+        margin-left: 7%;
+    }
     a{
         color: #fff;
         font-size: 15px;
@@ -444,29 +476,25 @@ footer{
         position: relative;
         z-index: 1;
         &:hover{
-            background: linear-gradient(to bottom right, #ff79DA, #9356DC);
+            background: linear-gradient(to bottom right, $clr-secondary, $clr-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             -moz-background-clip: text;
             -moz-text-fill-color: transparent;
         }
-    }
-    
+    }   
 }
-
 .footer-logo{
     margin: 10px 0 15px 0;
     a{
-        font-family: 'Shrikhand';
+        font-family: 'Shrikhand', serif;
 	    font-size: 18px;
     }
 }
-   
-
-
-
-
-/* *************************** page francaise *************************** */
+/* *************************** page menu *************************** */
+.icon--invisible{
+    opacity: 0;
+}
 .main-img-container{
     height: 250px;
 	position: relative;
@@ -491,7 +519,11 @@ footer{
     flex-direction: column;
     align-items: center;
     width: 100%;
-
+    @include desktop-only{
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-around;
+    }
 }
 .menu-container__tittle{
     display: flex;
@@ -501,7 +533,6 @@ footer{
     margin: 20px 0;
     h1{
         font-family: 'Shrikhand', serif;
-
     }
     .icon-container{
         width: 20px;
@@ -518,6 +549,10 @@ footer{
     display: flex;
     flex-direction: column;
     width: 90%;
+    @include desktop-only{
+        margin-left: 0px;
+        align-items: center;
+    }
 }
 .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
     display: flex;
@@ -525,12 +560,16 @@ footer{
     width: 95%;
     margin-bottom: 40px;
     max-width: 600px;
+    @include desktop-only{
+        align-items: center;
+        margin: 0 20px;
+        width: 30%;
+    }
 }
-
 .divider{
 	width: 50px;
 	height: 2px;
-	background-color: #99e2d0;
+	background-color: $clr-mint;
 	margin: 5px 0;
 }
 .menu__element{
@@ -547,10 +586,13 @@ footer{
     overflow: hidden;
     animation: slidein 1s ease-in-out 0.2s;
     animation-fill-mode: forwards;
-    &:hover .menu__element__check{
+    @include desktop-only{
+        margin: 20px 20px;
+    }
+    &:hover &__check{
         width: 72px;
     }
-    &:hover .check{
+    &:hover .check--anim{
         transform: rotate(-360deg);
     }
 }
@@ -558,16 +600,15 @@ footer{
     from { opacity: 0; }
     to   { opacity: 1; }
   }
-  .e2{
+.anim--delay2{
     animation-delay: 0.3s;
-  }
-  .e3{
+}
+.anim--delay3{
     animation-delay: 0.4s;
-  }
-  .e4{
+}
+.anim--delay4{
     animation-delay: 0.5s;
-  }
-
+}
 .menu__element__txt{
     padding: 10px 0 10px 20px;
     display: flex;
@@ -588,115 +629,26 @@ footer{
 .price{
         margin: 40px 10px 0 20px;
     }
-
-
-.nowrap{
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
 .menu__element__check__container{
     display: flex;
 }
 .menu__element__check{
     display: flex;
-    background-color: #99e2d0;
+    background-color: $clr-mint;
     width: 0px;
     transition: width 1000ms;
     border-radius: 0 15px 15px 0;
-    
     i{
         color: #fff;
         margin: auto;
     }
 }
-.check{
+.check--anim{
     transition: transform 1000ms;
 }
-
 .menu-container__button{
     margin: 30px 0;
     .explorer__Button{ 
         padding:15px 50px;
-    }
-}
-
-
-
-
-
-/* *************************** Media query *************************** */
-@media screen and ( min-width: 992px){
-
-    .header-container{
-        flex-direction: row;
-        justify-content: space-between;
-        margin: 0 10%;
-    }
-    .header--greybackground{
-        background-color: #fff;
-    }
-    .header--bottomshadow{
-        box-shadow: none;
-    }
-    .header__location{
-        margin: 30px 0;
-    }
-
-    .explorer__element{
-        &:nth-child(1){
-            margin: 60px 0px 25px 0px;
-        }
-        &:nth-child(3){
-            margin: 45px 0px 60px 0px;
-        }
-    }
-
-    .function__title{
-        margin: 50px auto 30px auto;
-    }
-
-    .under-function-container{
-        flex-direction: row;
-        margin: 40px 20px 60px 20px;
-    }
-    .function__element{
-        padding: 40px 25px 40px 25px;
-        i{
-            top: 40px;
-        }
-    }
-    .function__roundnumber{
-        top: 35px;
-    }
- 
-    .under-restaurant-container{
-        flex-direction: row;
-    }
-    .under-restaurant-container-duo{
-        margin: 0 20px;
-    }
-
-    .under-footer-container{ 
-        margin-left: 7%;
-    }
-
-    .under-menu-container{
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-around;
-    }
-    .menu__element{
-        margin: 20px 20px;
-    }
-    
-    .under-menu-tittle{
-        margin-left: 0px;
-        align-items: center;
-    }
-    .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
-        align-items: center;
-        margin: 0 20px;
-        width: 30%;
     }
 }
