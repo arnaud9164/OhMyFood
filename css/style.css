@@ -21,7 +21,7 @@
 @font-face {
   font-family: "Roboto";
   font-weight: 100;
-  src: url("Roboto/Roboto-Thin.ttf") format("truetype");
+  src: url("Roboto/Roboto-light.ttf") format("truetype");
 }
 @font-face {
   font-family: "Roboto";
@@ -298,12 +298,12 @@ h4 {
 .function__element {
   position: relative;
   display: flex;
-  width: 85%;
+  width: 86%;
   justify-content: center;
   background-color: #eaeaea;
   border-radius: 20px;
   box-shadow: 0px 5px 20px #999;
-  margin: 10px 10px 20px 30px;
+  margin: 10px 10px 20px 25px;
   padding: 25px;
   z-index: 1;
 }
@@ -384,11 +384,17 @@ h4 {
 
 .under-restaurant-container, .under-restaurant-container-duo {
   display: flex;
-  width: 90%;
   flex-direction: column;
   align-items: center;
 }
 
+.under-restaurant-container-duo {
+  width: 100%;
+}
+
+.under-restaurant-container {
+  width: 90%;
+}
 @media screen and (min-width: 992px) {
   .under-restaurant-container {
     flex-direction: row;
@@ -483,6 +489,9 @@ h4 {
 .card__txt h3, .card__txt h4 {
   color: #000;
   padding: 5px 0px 5px 0px;
+}
+.card__txt h3 {
+  font-weight: 700;
 }
 .card__txt p {
   margin: 15px;
@@ -666,6 +675,7 @@ footer {
   box-shadow: 0px 5px 20px #999;
   margin: 10px 0;
   opacity: 0;
+  transform: translateY(15px);
   overflow: hidden;
   -webkit-animation: slidein 1s ease-in-out 0.2s;
           animation: slidein 1s ease-in-out 0.2s;
@@ -689,6 +699,7 @@ footer {
     opacity: 0;
   }
   to {
+    transform: translateY(0px);
     opacity: 1;
   }
 }
@@ -698,22 +709,23 @@ footer {
     opacity: 0;
   }
   to {
+    transform: translateY(0px);
     opacity: 1;
   }
 }
 .anim--delay2 {
-  -webkit-animation-delay: 0.3s;
-          animation-delay: 0.3s;
-}
-
-.anim--delay3 {
   -webkit-animation-delay: 0.4s;
           animation-delay: 0.4s;
 }
 
+.anim--delay3 {
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+}
+
 .anim--delay4 {
-  -webkit-animation-delay: 0.5s;
-          animation-delay: 0.5s;
+  -webkit-animation-delay: 0.8s;
+          animation-delay: 0.8s;
 }
 
 .menu__element__txt {
@@ -728,6 +740,9 @@ footer {
 .menu__element__txt h4 {
   font-size: 14px;
 }
+.menu__element__txt h3 {
+  font-weight: 700;
+}
 .menu__element__txt h3, .menu__element__txt h4 {
   text-overflow: ellipsis;
   overflow: hidden;
@@ -735,7 +750,7 @@ footer {
 }
 
 .price {
-  margin: 40px 10px 0 20px;
+  margin: 40px 20px 0 20px;
 }
 
 .menu__element__check__container {
