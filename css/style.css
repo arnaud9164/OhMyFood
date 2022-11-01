@@ -539,7 +539,7 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 20px 0;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 @media screen and (min-width: 992px) {
   .under-footer-container {
@@ -614,7 +614,7 @@ footer {
   flex-direction: row;
   justify-content: space-between;
   width: 90%;
-  margin: 20px 0;
+  margin: 30px 0 20px 0;
 }
 .menu-container__tittle h1 {
   font-family: "Shrikhand", serif;
@@ -645,7 +645,7 @@ footer {
 .menu-container__entrees, .menu-container__plats, .menu-container__desserts {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 90%;
   margin-bottom: 40px;
   max-width: 600px;
 }

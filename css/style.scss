@@ -471,7 +471,7 @@ footer{
 	display: flex;
 	flex-direction: column;
 	padding: 20px 0;
-    margin-left: 10%;
+    margin-left: 5%;
     @include desktop-only{
         margin-left: 7%;
     }
@@ -536,7 +536,7 @@ footer{
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
-    margin: 20px 0;
+    margin: 30px 0 20px 0;
     h1{
         font-family: 'Shrikhand', serif;
     }
@@ -563,7 +563,7 @@ footer{
 .menu-container__entrees, .menu-container__plats, .menu-container__desserts{
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 90%;
     margin-bottom: 40px;
     max-width: 600px;
     @include desktop-only{
