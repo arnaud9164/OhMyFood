@@ -112,7 +112,7 @@ $breakpoints: 992px;
     @include desktop-only{
         flex-direction: row;
         justify-content: space-between;
-        margin: 0 10%;
+        margin: 0 5%;
     }
 }
 .header-container-menu{
@@ -299,7 +299,7 @@ $breakpoints: 992px;
     width: 90%;
     margin: 30px auto;
     @include desktop-only{
-        margin: 50px auto 30px auto;
+        margin: 50px 0 30px 5%;
     }
 }
 .function__roundnumber{
@@ -337,11 +337,12 @@ $breakpoints: 992px;
     width: 90%;
     @include desktop-only{
         flex-direction: row;
+        justify-content: space-between;
     }
 }
 .under-restaurant-container-duo{
     @include desktop-only{
-        margin: 0 20px;
+        width: 48%;
     }
 }
 .restaurant__title{
@@ -472,9 +473,6 @@ footer{
 	flex-direction: column;
 	padding: 20px 0;
     margin-left: 5%;
-    @include desktop-only{
-        margin-left: 7%;
-    }
     a{
         color: #fff;
         font-size: 15px;

@@ -140,7 +140,7 @@ h4 {
   .header-container {
     flex-direction: row;
     justify-content: space-between;
-    margin: 0 10%;
+    margin: 0 5%;
   }
 }
 
@@ -350,7 +350,7 @@ h4 {
 }
 @media screen and (min-width: 992px) {
   .function__title {
-    margin: 50px auto 30px auto;
+    margin: 50px 0 30px 5%;
   }
 }
 
@@ -398,12 +398,13 @@ h4 {
 @media screen and (min-width: 992px) {
   .under-restaurant-container {
     flex-direction: row;
+    justify-content: space-between;
   }
 }
 
 @media screen and (min-width: 992px) {
   .under-restaurant-container-duo {
-    margin: 0 20px;
+    width: 48%;
   }
 }
 
@@ -540,11 +541,6 @@ footer {
   flex-direction: column;
   padding: 20px 0;
   margin-left: 5%;
-}
-@media screen and (min-width: 992px) {
-  .under-footer-container {
-    margin-left: 7%;
-  }
 }
 .under-footer-container a {
   color: #fff;
